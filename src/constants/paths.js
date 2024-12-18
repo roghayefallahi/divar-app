@@ -1,0 +1,15 @@
+export const paths = [
+  "@",
+  "assets",
+  "components",
+  "configs",
+  "layouts",
+  "constants",
+  "pages",
+  "router",
+  "services",
+  "styles",
+  "utils",
+  "validate",
+  "helpers",
+];

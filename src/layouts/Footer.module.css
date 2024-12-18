@@ -1,0 +1,7 @@
+.footer{
+    text-align: center;
+    margin-top: 100px;
+    padding: 20px 0;
+    border-top: 2px solid rgb(234, 234, 234);
+    direction: ltr;
+}
