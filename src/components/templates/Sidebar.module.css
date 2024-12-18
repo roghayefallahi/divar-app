@@ -1,0 +1,33 @@
+.sidebar {
+    margin-top: 30px;
+    width: 200px;
+}
+
+.sidebar li {
+    list-style: none;
+    display: flex;
+    margin: 20px 0;
+    cursor: pointer;
+    
+
+}
+
+.sidebar li p:hover {
+    color: rgba(0, 0, 0, .87);
+}
+
+.sidebar li p {
+    font-weight: 200;
+    margin-right: 10px;
+    color: grey;
+}
+.selected{
+    padding: 10px;
+    background-color: rgb(247, 244, 244);
+    color: rgba(0, 0, 0, .87);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
