@@ -48,24 +48,34 @@ function CategoryForm() {
   };
 
   return (
-    <form
-      key={formKey}
-      onChange={changeHandler}
-      onSubmit={submitHandler}
-      className={styles.form}
-    >
+    <div className={styles.container}>
       <h3>دسته بندی جدید</h3>
 
-      <label htmlFor="name">عنوان دسته بندی</label>
-      <input type="text" name="name" id="name" defaultValue={form.name} />
-      <label htmlFor="slug">اسلاگ</label>
-      <input type="text" name="slug" id="slug" defaultValue={form.slug} />
-      <label htmlFor="icon">آیکون</label>
-      <input type="text" name="icon" id="icon" defaultValue={form.icon} />
-      <button type="submit" disabled={isPending}>
-        ایجاد
-      </button>
-    </form>
+      <form
+        key={formKey}
+        onChange={changeHandler}
+        onSubmit={submitHandler}
+        className={styles.form}
+      >
+        <div>
+          <label htmlFor="name">عنوان دسته بندی</label>
+          <input type="text" name="name" id="name" defaultValue={form.name} />
+        </div>
+        <div>
+          <label htmlFor="slug">اسلاگ</label>
+          <input type="text" name="slug" id="slug" defaultValue={form.slug} />
+        </div>
+        <div>
+          <label htmlFor="icon">آیکون</label>
+          <input type="text" name="icon" id="icon" defaultValue={form.icon} />
+        </div>
+        <div>
+          <button type="submit" disabled={isPending}>
+            ایجاد
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
 

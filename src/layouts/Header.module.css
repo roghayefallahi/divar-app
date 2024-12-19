@@ -63,12 +63,10 @@
     cursor: pointer;
     display: flex;
     flex-direction: column;
-
     outline: none;
     position: absolute;
     transition: opacity .36s ease-in-out, visibility .36s;
     transition-duration: .24s;
-
     z-index: 1000;
 }
 
@@ -108,4 +106,96 @@
     font-size: 0.7rem;
     margin-bottom: 14px;
     margin-top: -11px;
+}
+
+
+@media (max-width: 768px) {
+    .header {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+
+    .gps {
+        display: none !important;
+    }
+
+    .logo {
+
+        margin-left: 0;
+        width: 40px;
+    }
+
+    .header>div {
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .header span {
+        height: 30px;
+    }
+
+    .header span p {
+        font-size: 0.8rem;
+        margin: 10px 3px 0 0;
+    }
+
+    .button {
+        margin-right: 0;
+        margin-top: 10px;
+        justify-content: center;
+    }
+
+    .header .profile {
+        margin-left: 0;
+    }
+
+    .header .dropdown {
+        left: 0;
+        width: 200px;
+        top: 40px;
+        right: 20px;
+    }
+
+    .header .dropdown ul li {
+        font-size: 0.7rem;
+        padding: 10px;
+    }
+}
+
+
+@media (max-width: 950px) {
+    .header {
+        padding: 15px 0;
+    }
+
+    .logo {
+        width: 45px;
+    }
+
+    .header>div {
+        margin-top: 0;
+    }
+
+    .header span p {
+        font-size: 0.7rem;
+    }
+
+    .button {
+        padding: 0 8px;
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-width: 260px) {
+    .header{
+        width: 100%;
+    }
+    .logo {
+        display: none;
+    }
 }

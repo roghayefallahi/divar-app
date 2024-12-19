@@ -62,11 +62,15 @@
     border-radius: 50%;
     background-color: rgba(0, 0, 0, .09);
 }
+@media  (max-width: 950px) {
+    .search{
+        width: 350px;
+    }
+}
 
 @media (max-width: 768px) {
     .search {
-        width: 100%;
-        margin-right: 10px;
+        margin-right: 20px;
         height: 36px;
     }
 
@@ -105,5 +109,10 @@
         font-size: 0.8rem;
         width: 16px;
         height: 16px;
+    }
+}
+@media (max-width: 260px) {
+    .search{
+        margin-right: 0;
     }
 }
