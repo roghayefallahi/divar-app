@@ -90,7 +90,19 @@ function AddPost() {
 
   const addHandler = (e) => {
     e.preventDefault();
-    mutate(form);
+    if (
+      !form.title ||
+      !form.amount ||
+      !form.category ||
+      !form.city ||
+      !form.images ||
+      form.images.length === 0 ||
+      !form.content
+    ) {
+      toast.error("لطفا تمام فیلدها را پر کنید.");
+    } else {
+      mutate(form);
+    }
     // const formData = new FormData();
     // for (let i in form) {
     //   // formData.append(i, form[i]);
@@ -126,36 +138,58 @@ function AddPost() {
   };
 
   return (
-    <form
-      key={formKey}
-      onSubmit={addHandler}
-      onChange={changeHandler}
-      className={styles.form}
-    >
+    <div className={styles.container}>
       <h3>افزودن آگهی</h3>
-      <label htmlFor="title">عنوان</label>
-      <input type="text" id="title" name="title" />
-      <label htmlFor="content">توضیحات</label>
-      <textarea name="content" id="content" />
-      <label htmlFor="amount">قیمت</label>
-      <input type="number" id="amount" name="amount" />
-      <label htmlFor="city">شهر</label>
-      <input type="text" id="city" name="city" />
-      <label htmlFor="category">دسته بندی</label>
-      <select name="category" id="category" defaultValue={form.category}>
-        <option disabled value="">
-          انتخاب کنید
-        </option>
-        {data?.data.map((i) => (
-          <option key={i._id} value={i._id}>
-            {i.name}
-          </option>
-        ))}
-      </select>
-      <label htmlFor="images">عکس</label>
-      <input type="file" id="images" name="images" multiple />
-      <button type="submit">افزودن</button>
-    </form>
+      <form
+        key={formKey}
+        onSubmit={addHandler}
+        onChange={changeHandler}
+        className={styles.form}
+      >
+        <div>
+          <div>
+            <label htmlFor="title">عنوان</label>
+            <input type="text" id="title" name="title" />
+          </div>
+          <div>
+            <label htmlFor="city">شهر</label>
+            <input type="text" id="city" name="city" />
+          </div>
+          <div>
+            <label htmlFor="amount">قیمت</label>
+            <input type="number" id="amount" name="amount" />
+          </div>
+        </div>
+        <div>
+          <div>
+            <label htmlFor="category">دسته بندی</label>
+            <select name="category" id="category" defaultValue={form.category}>
+              <option disabled value="">
+                انتخاب کنید
+              </option>
+              {data?.data.map((i) => (
+                <option key={i._id} value={i._id}>
+                  {i.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label htmlFor="images">عکس</label>
+            <input type="file" id="images" name="images" multiple />
+          </div>
+        </div>
+        <div>
+          <div>
+            <label htmlFor="content">توضیحات</label>
+            <textarea name="content" id="content" />
+          </div>
+        </div>
+        <div>
+          <button type="submit">افزودن</button>
+        </div>
+      </form>
+    </div>
   );
 }
 

@@ -33,3 +33,20 @@
     width: 150px;
     text-align: center;
 }
+
+.actions{
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+.actions svg{
+    cursor: pointer;
+}
+.actions .trash{
+    color: #a62626;
+    margin-left: 10px;
+}
+.actions .edit{
+    color: green;
+
+}

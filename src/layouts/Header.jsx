@@ -59,8 +59,8 @@ function Header({search, setSearch, setQuery}) {
         <Link to="/">
           <img src="divar.svg" alt="divar logo" className={styles.logo} />
         </Link>
-        <span>
-          <img src="location.svg" alt="locaton icon" />
+        <span className={styles.gps}>
+          <img src="location.svg" alt="location icon" />
           <p>تهران</p>
         </span>
         <SearchBox search={search} setSearch={setSearch}  setQuery={setQuery} />

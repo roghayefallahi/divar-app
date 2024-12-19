@@ -19,7 +19,7 @@ function Sidebar({ categories, query, setQuery }) {
           data-category="all"
           className={!query.category ? styles.selected : null}
         >
-          <p>همه‌ی دسته‌ها</p>
+          <p>همه‌ی آگهی ها</p>
         </li>
         {categories?.data.map((category) => (
           <li
