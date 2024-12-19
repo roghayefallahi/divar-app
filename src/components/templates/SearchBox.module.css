@@ -6,7 +6,6 @@
     margin-right: 30px;
     width: 480px;
     transition: all 0.36s;
-
 }
 
 .search div {
@@ -25,12 +24,11 @@
     box-sizing: border-box;
     color: rgba(0, 0, 0, .87);
     flex: 1 1;
-    font-size: .875rem;
+    font-size: 0.875rem;
     outline: 0;
     transition: all .36s;
     font-weight: 200;
     line-height: 1.15;
-
 }
 
 .search input:focus {
@@ -47,12 +45,10 @@
     line-height: 1;
     border: none;
     transition: all 0.36s;
-
 }
 
 .search:hover .searchBtn {
     color: rgba(0, 0, 0, .87);
-
 }
 
 .search .close {
@@ -65,4 +61,49 @@
     cursor: pointer;
     border-radius: 50%;
     background-color: rgba(0, 0, 0, .09);
+}
+
+@media (max-width: 768px) {
+    .search {
+        width: 100%;
+        margin-right: 10px;
+        height: 36px;
+    }
+
+    .search div {
+        gap: 6px;
+        padding: 0 6px;
+    }
+
+    .search input {
+        font-size: 0.8rem;
+    }
+
+    .search button {
+        font-size: 0.9rem;
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search {
+        height: 34px;
+
+    }
+
+    .search div {
+        gap: 4px;
+        padding: 0 4px;
+    }
+
+    .search input {
+        font-size: 0.75rem;
+    }
+
+    .search button {
+        font-size: 0.8rem;
+        width: 16px;
+        height: 16px;
+    }
 }

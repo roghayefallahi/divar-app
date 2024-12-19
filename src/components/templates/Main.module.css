@@ -4,11 +4,16 @@
     justify-content: space-between;
     margin-top: 20px;
     width: calc(100% - 200px);
+    transition: transform 0.3s ease;
 
+}
+.container a{
+    width: 33.3333%;
 }
 
 .card {
-    width: 330px;
+    /* width: 330px; */
+  
     display: flex;
     justify-content: space-between;
     border: 1px solid #eaeaea;
@@ -34,4 +39,64 @@
 .info div {
     color: gray;
     font-size: 0.9rem;
+}
+
+
+@media (max-width: 1270px) {
+    .container a{
+        width: 45%;
+        margin: auto;
+    }
+   
+    .card {
+        width: 100%;
+    }
+ 
+}
+
+@media (max-width: 920px) {
+    .container a{
+        width: 45%;
+        margin: auto;
+    }
+   
+    .card {
+        width: 100%;
+    }
+    .card img{
+        width: 100px;
+        height: auto;
+    }
+
+    .info p {
+        font-size: 0.95rem;
+    }
+
+    .info div {
+        font-size: 0.85rem;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .container a{
+        width: 90%;
+        margin: auto;
+    }
+    .container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .card {
+        width: 100%; 
+    }
+
+    .info p {
+        font-size: 0.9rem; 
+    }
+
+    .info div {
+        font-size: 0.8rem;
+    }
 }

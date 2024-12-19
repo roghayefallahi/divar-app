@@ -1,15 +1,16 @@
 .sidebar {
     margin-top: 30px;
     width: 200px;
+    transition: width 0.3s ease;
 }
 
 .sidebar li {
     list-style: none;
     display: flex;
+    align-items: center;
+    /* برای قرارگیری آیتم‌ها در وسط */
     margin: 20px 0;
     cursor: pointer;
-    
-
 }
 
 .sidebar li p:hover {
@@ -21,7 +22,8 @@
     margin-right: 10px;
     color: grey;
 }
-.selected{
+
+.selected {
     padding: 10px;
     background-color: rgb(247, 244, 244);
     color: rgba(0, 0, 0, .87);
@@ -30,4 +32,67 @@
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+}
+
+/* ریسپانسیو برای دستگاه‌های کوچک‌تر */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 150px;
+        /* عرض کمتر در تبلت‌ها */
+    }
+
+    .sidebar li {
+        margin: 15px 0;
+        /* فاصله کمتر بین آیتم‌ها */
+    }
+
+    .sidebar li p {
+        font-size: 14px;
+        /* کاهش اندازه فونت */
+    }
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        width: 100%;
+        /* تطابق کامل با عرض صفحه */
+        margin-top: 20px;
+        /* کمی کاهش فاصله بالا */
+    }
+
+    .sidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .sidebar li {
+        margin: 10px 0;
+        justify-content: center;
+    }
+
+    .sidebar li p {
+        font-size: 12px;
+        /* کاهش بیشتر اندازه فونت */
+    }
+}
+
+@media (max-width: 400px) {
+    .sidebar {
+        padding: 10px;
+        /* فضای داخلی برای تنظیم بهتر */
+    }
+
+    .sidebar li {
+        flex-direction: column;
+        /* نمایش آیتم‌ها زیر هم */
+        text-align: center;
+        /* تراز متن در وسط */
+    }
+
+    .sidebar li p {
+        margin: 5px 0;
+        /* کاهش فاصله بین متن‌ها */
+    }
 }

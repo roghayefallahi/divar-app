@@ -6,7 +6,7 @@ import Sidebar from "components/templates/Sidebar";
 import { getCategory } from "services/admin";
 import { getAllPosts } from "services/user";
 
-const style = { display: "flex" };
+const style = { display: "flex", flexWrap: "wrap", justifyContent: "space-around"  };
 
 function HomePage({ query, setQuery, search, setSearch }) {
   const { data: posts, isPending: postsLoading } = useQuery({
@@ -24,7 +24,13 @@ function HomePage({ query, setQuery, search, setSearch }) {
       ) : (
         <div style={style}>
           <Sidebar categories={categories} query={query} setQuery={setQuery} />
-          <Main data={posts} query={query} setQuery={setQuery} setSearch={setSearch} search={search}/>
+          <Main
+            data={posts}
+            query={query}
+            setQuery={setQuery}
+            setSearch={setSearch}
+            search={search}
+          />
         </div>
       )}
     </>
