@@ -9,11 +9,23 @@ const searchPosts = (posts, search) => {
   );
   return searchedPosts;
 };
-const filterPosts = (posts, category) => {
-  if (!category) return posts;
-  const filteredPosts = posts.filter((p) => p.category === category);
-  return filteredPosts;
+const filterPosts = (posts, category, cities) => {
+  // if (!category) return posts;
+  // const filteredPosts = posts.filter((p) => p.category === category);
+  // return filteredPosts;
+  let filtered = posts;
+
+  if (category) {
+    filtered = filtered.filter((p) => p.category === category);
+  }
+
+  if (cities && cities.length > 0) {
+    filtered = filtered.filter((p) => cities.includes(p.options.city));
+  }
+
+  return filtered;
 };
+
 
 const createQueryObject = (currentQuery, newQuery) => {
   if (newQuery.category === "all") {
@@ -24,6 +36,10 @@ const createQueryObject = (currentQuery, newQuery) => {
     const { search, ...rest } = currentQuery;
     return rest;
   }
+  if (newQuery.cities === "") {
+    const { cities, ...rest } = currentQuery;
+    return rest;
+  }
 
   return { ...currentQuery, ...newQuery };
 };
@@ -31,8 +47,10 @@ const getInitialQuery = (searchParams) => {
   const query = {};
   const category = searchParams.get("category");
   const search = searchParams.get("search");
+  const cities = searchParams.get("cities");
   if (category) query.category = category;
   if (search) query.search = search;
+  if (cities) query.cities = cities;
   return query;
 };
 

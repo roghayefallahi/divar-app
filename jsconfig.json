@@ -14,6 +14,7 @@
             "utils/*":["./src/utils/*"],
             "validate/*":["./src/validate/*"],
             "helpers/*":["./src/helpers/*"],
+            "hooks/*":["./src/hooks/*"],
         }
     }
 }

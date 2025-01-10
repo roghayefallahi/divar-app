@@ -2,16 +2,19 @@ import { sp } from "utils/numbers";
 import { Link, useSearchParams } from "react-router-dom";
 
 import {
+  createQueryObject,
   filterPosts,
   getInitialQuery,
   searchPosts,
   shortenText,
 } from "helpers/helper";
+import { useContext, useEffect, useState } from "react";
+import { CityContext } from "../../App";
 
 import styles from "./Main.module.css";
-import { useEffect, useState } from "react";
 
-function Main({ data, query, setQuery, search, setSearch }) {
+function Main({ data, query, setQuery, setSearch }) {
+  const { selectedCities } = useContext(CityContext);
   const posts = data?.data.posts;
 
   const [diplayed, setDisplayed] = useState([]);
@@ -24,11 +27,17 @@ function Main({ data, query, setQuery, search, setSearch }) {
   }, [posts]);
 
   useEffect(() => {
+    if (selectedCities.length > 0) {
+      setQuery((query) => createQueryObject(query, { cities: selectedCities.join(',') }));
+    }
+  }, [selectedCities, searchParams]);
+
+  useEffect(() => {
     setSearchParams(query);
     setSearch(query.search || "");
     let finalPosts = searchPosts(posts, query.search);
 
-    finalPosts = filterPosts(finalPosts, query.category);
+    finalPosts = filterPosts(finalPosts, query.category, query.cities);
     setDisplayed(finalPosts);
   }, [query]);
 
