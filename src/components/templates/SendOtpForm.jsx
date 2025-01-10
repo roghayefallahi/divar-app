@@ -19,7 +19,7 @@ function SendOtpForm({ mobile, setMobile, setStep }) {
         toast.error("مشکلی در ارسال اطلاعات به وجود آمده است!!!", {
           position: "top-center",
         });
-        console.log(error.response.data.message);
+        console.log(error.response?.data?.message);
       }
     }
   };
