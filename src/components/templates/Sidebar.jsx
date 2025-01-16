@@ -10,8 +10,8 @@ function Sidebar({ categories, query, setQuery }) {
 
     setQuery((query) => createQueryObject(query, { category }));
   };
-  console.log(categories);
-  
+ 
+ 
 
   return (
     <div className={styles.sidebar}>
