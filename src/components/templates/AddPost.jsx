@@ -14,7 +14,7 @@ function AddPost() {
     content: "",
     amount: null,
     city: "",
-    category: "",
+    category_id: "",
     images: [],
   });
 
@@ -49,6 +49,8 @@ function AddPost() {
       }
     }
   };
+
+  
   const createPost = (newPost) => {
     const formData = new FormData();
     for (let key in newPost) {
@@ -60,12 +62,16 @@ function AddPost() {
     }
     const accessToken = getCookie("accessToken");
 
-    return axios.post(`${import.meta.env.VITE_BASE_URL}post/create`, formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
+    return axios.post(
+      `${import.meta.env.VITE_BASE_URL}api/posts/create`,
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
   };
 
   const { mutate } = useMutation({
@@ -78,7 +84,7 @@ function AddPost() {
         content: "",
         amount: null,
         city: "",
-        category: "",
+        category_id: "",
         images: [],
       });
       setFormKey(Date.now());
@@ -93,7 +99,7 @@ function AddPost() {
     if (
       !form.title ||
       !form.amount ||
-      !form.category ||
+      !form.category_id ||
       !form.city ||
       !form.images ||
       form.images.length === 0 ||
@@ -163,12 +169,16 @@ function AddPost() {
         <div>
           <div>
             <label htmlFor="category">دسته بندی</label>
-            <select name="category" id="category" defaultValue={form.category}>
+            <select
+              name="category_id"
+              id="category"
+              defaultValue={form.category_id}
+            >
               <option disabled value="">
                 انتخاب کنید
               </option>
               {data?.data.map((i) => (
-                <option key={i._id} value={i._id}>
+                <option key={i.id} value={i.id}>
                   {i.name}
                 </option>
               ))}

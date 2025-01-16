@@ -23,9 +23,9 @@ function Sidebar({ categories, query, setQuery }) {
         </li>
         {categories?.data.map((category) => (
           <li
-            data-category={category._id}
-            key={category._id}
-            className={category._id === query.category ? styles.selected : null}
+            data-category={category.id}
+            key={category.id}
+            className={category.id === query.category ? styles.selected : null}
           >
             <img src={`${category.icon}.svg`} alt={category.name} />
             <p>{category.name}</p>

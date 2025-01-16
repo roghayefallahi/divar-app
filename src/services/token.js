@@ -6,7 +6,7 @@ const getNewTokens = async () => {
   if (!refreshToken) return;
 
   try {
-    const response = await api.post("auth/check-refresh-token", {
+    const response = await api.post("api/auth/check-refresh-token", {
       refreshToken,
     });
     return { response };

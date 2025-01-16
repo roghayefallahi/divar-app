@@ -16,10 +16,13 @@ function HomePage({ query, setQuery, search, setSearch }) {
     queryKey: ["get-all-posts"],
     queryFn: getAllPosts,
   });
+ 
+  
   const { data: categories, isPending: categoriesLoading } = useQuery({
     queryKey: ["get-categories"],
     queryFn: getCategory,
   });
+
 
 
 

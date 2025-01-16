@@ -20,11 +20,9 @@ function CheckOtpForm({ code, setCode, mobile, setStep }) {
     e.preventDefault();
 
     if (validateCode(code)) {
-      const { response, error } = await checkOtp(mobile, code);
-    
+      const { response, error } = await checkOtp(mobile, +code);
 
       if (response) {
-      
         setCookie(response.data);
         navigate("/");
         refetch();

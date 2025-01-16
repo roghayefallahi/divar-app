@@ -14,6 +14,7 @@ function CategoryList() {
     queryKey: ["get-categories"],
     queryFn: getCategory,
   });
+console.log(data);
 
   const { mutate } = useMutation({
     mutationFn: deleteCategory,
@@ -40,12 +41,12 @@ function CategoryList() {
           <Loader />
         ) : (
           data.data.map((i) => (
-            <div key={i._id}>
+            <div key={i.id}>
               <img src={`${i.icon}.svg`} alt="" />
               <h5>{i.name}</h5>
               <p>slug:{i.slug}</p>
 
-              <FaTrashAlt data-id={i._id} onClick={deleteHandler} />
+              <FaTrashAlt data-id={i.id} onClick={deleteHandler} />
             </div>
           ))
         )}

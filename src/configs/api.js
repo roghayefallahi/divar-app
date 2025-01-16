@@ -23,6 +23,7 @@ api.interceptors.request.use(
   }
 );
 
+
 api.interceptors.response.use(
   (response) => {
     return response;
@@ -32,9 +33,9 @@ api.interceptors.response.use(
     if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
-      const res = await getNewTokens();
-      if (!res?.response) return;
-      setCookie(res.response.data);
+      // const res = await getNewTokens();
+      // if (!res?.response) return;
+      // setCookie(res.response.data);
 
       return api(originalRequest);
     }

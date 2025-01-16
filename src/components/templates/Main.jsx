@@ -16,6 +16,8 @@ import styles from "./Main.module.css";
 function Main({ data, query, setQuery, setSearch }) {
   const { selectedCities } = useContext(CityContext);
   const posts = data?.data.posts;
+ 
+  
 
   const [diplayed, setDisplayed] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -44,18 +46,18 @@ function Main({ data, query, setQuery, setSearch }) {
   return (
     <div className={styles.container}>
       {diplayed.map((post) => (
-        <Link to={`/post/${post._id}`} key={post._id}>
+        <Link to={`api/posts/${post.id}`} key={post.id}>
           <div className={styles.card}>
             <div className={styles.info}>
-              <p>{shortenText(post.options.title)}</p>
+              <p>{shortenText(post.title)}</p>
               <div>
                 <p>{sp(post.amount)} ریال</p>
-                <span>{post.options.city}</span>
+                <span>{post.city}</span>
               </div>
             </div>
             <img
               src={`${import.meta.env.VITE_BASE_URL}${post.images[0]}`}
-              alt={shortenText(post.options.title)}
+              alt={shortenText(post.title)}
             />
           </div>
         </Link>

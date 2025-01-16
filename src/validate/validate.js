@@ -19,7 +19,7 @@ const validateMobile = (value) => {
 
 
 const validateCode = (value) => {
-  const codeRegex = /^[0-9]{5}$/;
+  const codeRegex = /^[0-9]{6}$/;
   if (!value) {
     toast.warn("کد تایید را وارد کنید.", {
       position: "top-center",
