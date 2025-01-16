@@ -11,10 +11,11 @@ function SendOtpForm({ mobile, setMobile, setStep }) {
 
     if (validateMobile(mobile)) {
       const { response, error } = await sendOtp(mobile);
-
-
+      
 
       if (response) setStep(2);
+ 
+  
       if (error) {
         toast.error("مشکلی در ارسال اطلاعات به وجود آمده است!!!", {
           position: "top-center",
