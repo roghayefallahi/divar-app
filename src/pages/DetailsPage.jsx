@@ -7,6 +7,7 @@ import { getPostById } from "services/user";
 function DetailsPage() {
   const { id } = useParams();
 
+
   const { data, isPending } = useQuery({
     queryKey: ["get-all-posts", id],
     queryFn: () => getPostById(id),

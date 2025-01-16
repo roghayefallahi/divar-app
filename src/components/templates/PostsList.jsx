@@ -16,6 +16,7 @@ function PostsList() {
     queryFn: getPosts,
   });
 
+
   
   const { mutate } = useMutation({
     mutationFn: deletePost,
@@ -42,7 +43,7 @@ function PostsList() {
       ) : (
         <>
           <h3>آگهی های شما</h3>
-          {data.data.posts.map((post) => (
+          {data?.data.posts.map((post) => (
             <div key={post.id} className={styles.post}>
               <img
                 src={`${import.meta.env.VITE_BASE_URL}${post.images[0]}`}

@@ -46,7 +46,7 @@ function Main({ data, query, setQuery, setSearch }) {
   return (
     <div className={styles.container}>
       {diplayed.map((post) => (
-        <Link to={`api/posts/${post.id}`} key={post.id}>
+        <Link to={`post/${post.id}`} key={post.id}>
           <div className={styles.card}>
             <div className={styles.info}>
               <p>{shortenText(post.title)}</p>

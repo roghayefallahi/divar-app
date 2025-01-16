@@ -10,6 +10,8 @@ function Sidebar({ categories, query, setQuery }) {
 
     setQuery((query) => createQueryObject(query, { category }));
   };
+  console.log(categories);
+  
 
   return (
     <div className={styles.sidebar}>
@@ -25,7 +27,7 @@ function Sidebar({ categories, query, setQuery }) {
           <li
             data-category={category.id}
             key={category.id}
-            className={category.id === query.category ? styles.selected : null}
+            className={category.id == query.category ? styles.selected : null}
           >
             <img src={`${category.icon}.svg`} alt={category.name} />
             <p>{category.name}</p>

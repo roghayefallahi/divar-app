@@ -50,16 +50,22 @@ function AddPost() {
     }
   };
 
-  
   const createPost = (newPost) => {
     const formData = new FormData();
     for (let key in newPost) {
       if (key === "images") {
-        newPost.images.forEach((file) => formData.append("images", file));
+        formData.append(
+          key,
+          JSON.stringify(newPost[key].map((file) => file.name))
+        ); // آرایه فایل‌ها به عنوان رشته
+        newPost[key].forEach((file) => formData.append("images[]", file));
+        // newPost.images.forEach((file) => formData.append("images", file));
       } else {
         formData.append(key, newPost[key]);
       }
     }
+
+   
     const accessToken = getCookie("accessToken");
 
     return axios.post(
@@ -73,6 +79,7 @@ function AddPost() {
       }
     );
   };
+
 
   const { mutate } = useMutation({
     mutationFn: createPost,

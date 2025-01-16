@@ -14,7 +14,7 @@ function CategoryList() {
     queryKey: ["get-categories"],
     queryFn: getCategory,
   });
-console.log(data);
+
 
   const { mutate } = useMutation({
     mutationFn: deleteCategory,
