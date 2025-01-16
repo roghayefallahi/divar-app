@@ -47,7 +47,7 @@ function Header({ search, setSearch, setQuery }) {
   const exitHandler = () => {
     document.cookie = "accessToken=; max-age=0; path=/;";
 
-    document.cookie = "refreshToken=; max-age=0; path=/;";
+    // document.cookie = "refreshToken=; max-age=0; path=/;";
 
     navigate("/");
     setIsSubmenuOpen(flase);

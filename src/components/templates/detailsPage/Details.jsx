@@ -8,16 +8,16 @@ import { e2p, sp } from "utils/numbers";
 import styles from "./Details.module.css";
 
 function Details({ data }) {
-  
+   
   const [isShow, setIsShow] = useState(false);
 
   const showHandler = () => {
     setIsShow((i) => !i);
   };
 
-  
+  console.log(data);
 
-  const relativeTime = formatDistanceToNow(new Date(data.data.post.createdAt), {
+  const relativeTime = formatDistanceToNow(new Date(data?.data.post.created_at), {
     addSuffix: true, // افزودن "پیش" یا "بعد"
     locale: faIR, // زبان فارسی
   });
@@ -25,15 +25,15 @@ function Details({ data }) {
   return (
     <div className={styles.container}>
       <div className={styles.details}>
-        <h3>{data.data.post.options.title}</h3>
+        <h3>{data?.data.post.title}</h3>
         <p>
-          {e2p(relativeTime)} در <span>{data.data.post.options.city}</span>
+          {e2p(relativeTime)} در <span>{data.data.post.city}</span>
         </p>
 
         <button onClick={showHandler} disabled={isShow}>اطلاعات تماس</button>
         { isShow && ( <div className={styles.info}>
           <p>شماره موبایل</p>
-          <span>{e2p(data.data.post.userMobile)}</span>
+          <span>{e2p(data.data.post.user.mobile)}</span>
         </div>)}
        
         <hr />
@@ -44,7 +44,7 @@ function Details({ data }) {
         <hr />
         <div className={styles.description}>
           <h2>توضیحات</h2>
-          <p>{data.data.post.options.content}</p>
+          <p>{data.data.post.content}</p>
         </div>
       </div>
       <div className={styles.slider}>

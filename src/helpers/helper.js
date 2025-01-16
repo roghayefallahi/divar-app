@@ -5,7 +5,7 @@ const shortenText = (text) => {
 const searchPosts = (posts, search) => {
   if (!search) return posts;
   const searchedPosts = posts.filter((p) =>
-    p.options.title.toLowerCase().includes(search)
+    p.title.toLowerCase().includes(search)
   );
   return searchedPosts;
 };
@@ -16,11 +16,11 @@ const filterPosts = (posts, category, cities) => {
   let filtered = posts;
 
   if (category) {
-    filtered = filtered.filter((p) => p.category === category);
+    filtered = filtered.filter((p) => p.category_id == category);
   }
 
   if (cities && cities.length > 0) {
-    filtered = filtered.filter((p) => cities.includes(p.options.city));
+    filtered = filtered.filter((p) => cities.includes(p.city));
   }
 
   return filtered;

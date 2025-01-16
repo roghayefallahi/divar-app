@@ -29,20 +29,17 @@ function Router({ query, setQuery, search, setSearch }) {
         path="/auth"
         element={data ? <Navigate to="/dashboard" /> : <AuthPage />}
       />
-      {/* <Route
+      <Route
         path="/admin"
         element={
-          data && data.data.role === "ADMIN" ? (
+          data && data.data.role === "admin" ? (
             <AdminPage />
           ) : (
             <Navigate to="/" />
           )
         }
-      /> */}
-      <Route
-        path="/admin"
-        element={data ? <AdminPage /> : <Navigate to="/" />}
       />
+    
       <Route path="post/:id" element={<DetailsPage />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
