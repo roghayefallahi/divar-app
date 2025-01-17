@@ -57,16 +57,16 @@ function AddPost() {
         formData.append(
           key,
           JSON.stringify(newPost[key].map((file) => file.name))
-        ); // آرایه فایل‌ها به عنوان رشته
-        newPost[key].forEach((file) => formData.append("images[]", file));
-        // newPost.images.forEach((file) => formData.append("images", file));
+        ); 
+        newPost.images.forEach((file) => formData.append("images[]", file));
       } else {
         formData.append(key, newPost[key]);
       }
     }
 
-   
     const accessToken = getCookie("accessToken");
+  
+    
 
     return axios.post(
       `${import.meta.env.VITE_BASE_URL}api/posts/create`,

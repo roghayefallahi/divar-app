@@ -15,7 +15,7 @@ function Details({ data }) {
     setIsShow((i) => !i);
   };
 
-  console.log(data);
+ 
 
   const relativeTime = formatDistanceToNow(new Date(data?.data.post.created_at), {
     addSuffix: true, // افزودن "پیش" یا "بعد"
